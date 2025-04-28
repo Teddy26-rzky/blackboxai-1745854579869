@@ -36,6 +36,7 @@ $bookings = $stmt->fetchAll();
             <nav>
                 <a href="confirm_payment.php" class="mr-4 hover:underline">Konfirmasi Pembayaran</a>
                 <a href="manage_schedule.php" class="mr-4 hover:underline">Atur Jadwal</a>
+                <a href="rooms.php" class="mr-4 hover:underline">Manajemen Room</a>
                 <a href="../logout.php" class="hover:underline">Logout</a>
             </nav>
         </div>
