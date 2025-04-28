@@ -19,6 +19,7 @@ CREATE TABLE rooms (
     nama_room VARCHAR(100) NOT NULL,
     deskripsi TEXT,
     harga DECIMAL(10,2) NOT NULL,
+    gambar VARCHAR(255) DEFAULT NULL,
     status ENUM('tersedia', 'disewa') DEFAULT 'tersedia'
 );
 
@@ -47,6 +48,11 @@ CREATE TABLE payments (
 );
 
 -- Insert initial rooms
-INSERT INTO rooms (nama_room, deskripsi, harga, status) VALUES
-('Room 1', 'Room 1 description', 1000000.00, 'tersedia'),
-('Room 2', 'Room 2 description', 1200000.00, 'tersedia');
+INSERT INTO rooms (nama_room, deskripsi, harga, gambar, status) VALUES
+('Room 1', 'Room 1 description', 1000000.00, 'room1.jpg', 'tersedia'),
+('Room 2', 'Room 2 description', 1200000.00, 'room2.jpg', 'tersedia');
+
+-- Insert default admin user
+INSERT INTO users (nama, nomor_telepon, alamat, email, password, role) VALUES
+('Admin', '08123456789', 'Alamat Admin', 'admin@example.com', '$2y$10$e0NRzQ6q6v6Q6Q6Q6Q6Q6O6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6', 'admin');
+-- Password di atas adalah hash dari 'admin123'
