@@ -54,5 +54,5 @@ INSERT INTO rooms (nama_room, deskripsi, harga, gambar, status) VALUES
 
 -- Insert default admin user
 INSERT INTO users (nama, nomor_telepon, alamat, email, password, role) VALUES
-('Admin', '08123456789', 'Alamat Admin', 'admin@example.com', '$2y$10$e0NRzQ6q6v6Q6Q6Q6Q6Q6O6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6', 'admin');
--- Password di atas adalah hash dari 'admin123'
+('Admin', '08123456789', 'Alamat Admin', 'admin@example.com', 'admin123', 'admin');
+-- Password disimpan dalam bentuk plain text (tidak disarankan untuk produksi)
