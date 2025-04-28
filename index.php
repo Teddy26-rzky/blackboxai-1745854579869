@@ -31,14 +31,17 @@ $rooms = $stmt->fetchAll();
     <main class="container mx-auto p-4 flex-grow">
         <h2 class="text-2xl font-semibold mb-4">Room Tersedia</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <?php foreach ($rooms as $room): ?>
-                <div class="bg-white rounded shadow p-4">
-                    <h3 class="text-xl font-bold mb-2"><?= htmlspecialchars($room['nama_room']) ?></h3>
-                    <p class="mb-2"><?= htmlspecialchars($room['deskripsi']) ?></p>
-                    <p class="mb-4 font-semibold">Harga: Rp <?= number_format($room['harga'], 0, ',', '.') ?></p>
-                    <a href="booking.php?room_id=<?= $room['id'] ?>" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Booking Sekarang</a>
-                </div>
-            <?php endforeach; ?>
+                    <?php foreach ($rooms as $room): ?>
+                        <div class="bg-white rounded shadow p-4">
+                            <?php if ($room['gambar']): ?>
+                                <img src="images/<?= htmlspecialchars($room['gambar']) ?>" alt="<?= htmlspecialchars($room['nama_room']) ?>" class="w-full h-48 object-cover rounded mb-4" />
+                            <?php endif; ?>
+                            <h3 class="text-xl font-bold mb-2"><?= htmlspecialchars($room['nama_room']) ?></h3>
+                            <p class="mb-2"><?= htmlspecialchars($room['deskripsi']) ?></p>
+                            <p class="mb-4 font-semibold">Harga: Rp <?= number_format($room['harga'], 0, ',', '.') ?></p>
+                            <a href="booking.php?room_id=<?= $room['id'] ?>" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Booking Sekarang</a>
+                        </div>
+                    <?php endforeach; ?>
         </div>
     </main>
 
