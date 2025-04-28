@@ -22,8 +22,13 @@ $rooms = $stmt->fetchAll();
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold">Sewa Room Apartemen</h1>
             <nav>
-                <a href="register.php" class="mr-4 hover:underline">Daftar</a>
-                <a href="login.php" class="hover:underline">Login</a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="user/history.php" class="mr-4 hover:underline">Histori Penyewaan</a>
+                    <a href="logout.php" class="hover:underline">Logout</a>
+                <?php else: ?>
+                    <a href="register.php" class="mr-4 hover:underline">Daftar</a>
+                    <a href="login.php" class="hover:underline">Login</a>
+                <?php endif; ?>
             </nav>
         </div>
     </header>
